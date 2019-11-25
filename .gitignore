@@ -1,18 +1,21 @@
-
 # ccls                                                                                                                                                
 .ccls-cache                                                                                                                                           
 
 # qmake                                                                                                                                               
 Makefile                                                                                                                                               
-.qmake.stash                                                                                                                                          *.user*                                                                                                                                             
-/build*                                                                                                                                               /RPMS
+.qmake.stash                                                                                                                                        
+*.user*                                                                                                                                             
+/build*                                                                                                                                               
+/RPMS
 /installroot                                                                                                                                          
 /lib/pkgconfig                                                                                                                                        
-/*.list                                                                                                                                               moc_*                                                                                                                                                  
+/*.list                                                                                                                                               
+moc_*                                                                                                                                                  
 *.prl                                                                                                                                                
 *.o                                                                                                                                                   
 *.moc                                                                                                                                                 
 *.a                                                                                                             
 *.so                                                                                                                                                  
-*.so.*                                                                                                                                                *.qm
+*.so.*                                                                                                                                               
+*.qm
 *.autosave*
