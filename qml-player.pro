@@ -1,4 +1,5 @@
-QT += quick multimedia
+QT += quick core gui multimedia
+
 CONFIG += c++11
 
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -17,5 +18,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    data.h \
     playerlist.h \
     player.h
