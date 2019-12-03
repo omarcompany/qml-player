@@ -1,2 +1,2 @@
 App player
-(c) Danila Rostovcev, Valentin Veremchuk
+(c) Danila Rostovcev, Valentin Veremchuk, Aleksey Tatarov
