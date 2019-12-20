@@ -20,7 +20,7 @@ public:
 
 	Q_INVOKABLE qint64 position() const; // Get current position
 
-	Q_INVOKABLE void setVolume(const int value);
+    Q_INVOKABLE void setVolume(const int &value);
 
 	int volume() const;
 

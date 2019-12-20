@@ -41,7 +41,12 @@ qint64 Player::position() const
 	return m_player.position();
 }
 
-void Player::setVolume(const int value)
+void Player::setVolume(const int &value)
 {
-	m_player.setVolume(value);
+    m_player.setVolume(value);
+}
+
+int Player::volume() const
+{
+    return m_player.volume();
 }
