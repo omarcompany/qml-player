@@ -34,10 +34,4 @@ Rectangle {
 		anchors.fill: parent
 		onClicked: root.clicked()
 	}
-
-	onClicked: {
-		player.start(model.path);
-		PlayerTimerSingleton.start();
-	}
-
 }

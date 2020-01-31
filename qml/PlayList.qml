@@ -10,7 +10,10 @@ Rectangle {
 		clip: true
 
 		delegate: ListItem {
-
+            onClicked: {
+                player.start(model.path);
+                PlayerTimerSingleton.start();
+            }
 		}
 	}
 }
