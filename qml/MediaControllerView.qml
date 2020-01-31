@@ -1,20 +1,31 @@
 import QtQuick 2.0
 
-Rectangle {
-	color: "#512023" // crimson
-	property var icons: ["/icons/pause", "/icons/play", "/icons/stop"]
+Column {
+    property var icons: ["/icons/pause", "/icons/play", "/icons/stop"]
+    property color backgroundColor: "transparent"
+    Row {
+        spacing: 3
+        width: parent.width
+        Repeater {
+            model: icons
+            delegate: MasterButton {
+                width: parent.width / icons.length
+            }
+        }
+    }
 
-	Row {
-		height: parent.height
-		width: parent.width
-		anchors.centerIn: parent
-		spacing: 3
+    Row {
+        height: 60
+        width: parent.width
 
-		Repeater {
-			model: icons
-			delegate: MasterButton {
-				width: parent.width / icons.length
-			}
-		}
-	}
+        TimeWatcher {
+            height: parent.height
+            width: parent.width / 2
+        }
+
+        VolumeSlider {
+            height: parent.height
+            width: parent.width / 2
+        }
+    }
 }
