@@ -1,7 +1,6 @@
 import QtQuick 2.0
 
 Rectangle {
-	id: root
 	color: "#512023" // crimson
 	property var icons: ["/icons/pause", "/icons/play", "/icons/stop"]
 

@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>PlayList.qml</file>
-        <file>PlayerView.qml</file>
+        <file>MediaControllerView.qml</file>
         <file>HomePage.qml</file>
         <file>ListItem.qml</file>
         <file>MasterButton.qml</file>

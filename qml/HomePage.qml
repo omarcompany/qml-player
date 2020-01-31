@@ -3,7 +3,7 @@ import QtQuick 2.0
 Column {
 	id: root
 
-	PlayerView {
+    MediaControllerView {
 		id: playerView
 		height: 100
 		width: parent.width
