@@ -10,6 +10,8 @@ Column {
             model: icons
             delegate: MasterButton {
                 width: parent.width / icons.length
+
+                onClicked: executeButtonEvent(model.index)
             }
         }
     }
@@ -26,6 +28,23 @@ Column {
         VolumeSlider {
             height: parent.height
             width: parent.width / 2
+        }
+    }
+
+    function executeButtonEvent(index) {
+        switch (index) {
+              case 0: // pause button
+                  player.pause()
+                  PlayerTimerSingleton.stop()
+                  break
+              case 1: // resume button
+                  player.resume()
+                  PlayerTimerSingleton.start()
+                  break
+              case 2: // stop button
+                  player.stop()
+                  PlayerTimerSingleton.stop()
+                  break
         }
     }
 }
