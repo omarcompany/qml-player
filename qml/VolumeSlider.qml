@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.5
+import QtQuick.Controls 1.4
 
 Rectangle {
     color: backgroundColor
@@ -7,9 +7,9 @@ Rectangle {
     Slider {
         id: volumeSlider
         anchors.fill: parent
-        from:1
-        value: 100
-        to: 100
-        onPositionChanged: player.setVolume(position * 100)
+        minimumValue: 0.01
+        maximumValue: 1.0
+        value: 0.5
+        onValueChanged: player.setVolume(volumeSlider.value * 100)
     }
 }
