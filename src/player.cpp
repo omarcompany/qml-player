@@ -1,4 +1,5 @@
 #include "player.h"
+#include "playerlist.h"
 
 #include <QString>
 #include <QDir>

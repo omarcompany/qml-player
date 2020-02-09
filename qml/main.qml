@@ -4,6 +4,9 @@ import QtQuick.Window 2.12
 import space.developers 1.0
 
 Window {
+    property alias widthGlobal: mainWindow.width
+    property alias heightGlobal: mainWindow.height
+    id: mainWindow
     visible: true
     minimumWidth: 300
     minimumHeight: 600
@@ -23,5 +26,21 @@ Window {
 
     PlayerList {
         id: dataModel
+    }
+
+    RightButtonMenu {
+        id: menu
+        visible: false
+        onSignalExit: {
+            menu.visible = false
+        }
+    }
+
+    RenameWindow {
+        id: renameWindow
+        visible: false
+        onSignalRenameWindowExit: {
+            renameWindow.visible = false
+        }
     }
 }
