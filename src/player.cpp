@@ -4,41 +4,47 @@
 #include <QDir>
 #include <QUrl>
 
-Player::Player(QObject *parent) : QObject(parent)
+Player::Player(QObject *parent) : QObject(parent), m_state{IdleState}
 {
 
 }
 
 void Player::start(const QString &path)
-{
-	if(m_player.state() == QMediaPlayer::PlayingState)
-		m_player.stop();
-
-	m_player.setMedia(QUrl::fromLocalFile(path));
-	m_player.play();
+{ 
+    if (m_state == IdleState) {
+        m_player.setMedia(QUrl::fromLocalFile(path));
+        m_player.play();
+        setState(PlayingState);
+    }
 }
 
 void Player::stop()
 {
-	if(!(m_player.state() == QMediaPlayer::StoppedState))
-		m_player.stop();
+    if (m_state != IdleState) {
+        m_player.stop();
+        setState(IdleState);
+    }
 }
 
 void Player::pause()
 {
-	if(m_player.state() == QMediaPlayer::PlayingState)
-		m_player.pause();
+    if (m_state == PlayingState) {
+        m_player.pause();
+        setState(PausedState);
+    }
 }
 
 void Player::resume()
 {
-	if(m_player.state() == QMediaPlayer::PausedState)
-		m_player.play();
+    if (m_state == PausedState) {
+        m_player.play();
+        setState(PlayingState);
+    }
 }
 
 qint64 Player::position() const
 {
-	return m_player.position();
+    return m_player.position();
 }
 
 void Player::setVolume(const int &value)
@@ -49,4 +55,18 @@ void Player::setVolume(const int &value)
 int Player::volume() const
 {
     return m_player.volume();
+}
+
+Player::State Player::state() const
+{
+    return m_state;
+}
+
+void Player::setState(Player::State state)
+{
+    if (m_state == state)
+        return;
+
+    m_state = state;
+    emit stateChanged(m_state);
 }
