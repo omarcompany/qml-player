@@ -9,9 +9,13 @@ Rectangle {
         clip: true
 
         delegate: ListItem {
-            onClicked: {
+
+            onLeftClicked: {
                 player.start(model.path);
                 PlayerTimerSingleton.start();
+            }
+            onRightClicked: {
+                PlayerTimerSingleton.itemPath = model.path;
             }
         }
     }

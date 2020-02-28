@@ -1,8 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#pragma once
-
 #include <QObject>
 #include <QMediaPlayer>
 

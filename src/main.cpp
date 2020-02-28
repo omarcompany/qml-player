@@ -3,6 +3,12 @@
 
 #include "playerlist.h"
 #include "player.h"
+#include "fileengine.h"
+
+static QObject *player_api_factory(QQmlEngine *, QJSEngine *)
+{
+    return new FileEngine;
+}
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +18,7 @@ int main(int argc, char *argv[])
 
 	qmlRegisterType<PlayerList>("space.developers", 1, 0, "PlayerList");
 	qmlRegisterType<Player>("space.developers", 1, 0, "Player");
+    qmlRegisterSingletonType<FileEngine>("space.developers", 1, 0, "FileEngine", player_api_factory);
 
 	QQmlApplicationEngine engine;
 	const QUrl url(QStringLiteral("qrc:/main.qml"));
